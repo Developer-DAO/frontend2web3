@@ -1,0 +1,25 @@
+.container {
+    max-width: 536px;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+
+.main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.copy {
+    margin-bottom: 6%;
+    size: 18px;
+    line-height: 24px;
+}
+
+.slash {
+    color: #F43F5E;
+    margin-right: 5px;
+}
+
+.header {
+    margin-bottom: 3%;
+}

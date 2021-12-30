@@ -1,0 +1,35 @@
+.navLeft {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    padding-left: 2%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.links {
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.slash {
+    color: #F43F5E;
+    margin-right: 5px;
+}
+
+.button {
+    background-color: #302244;
+    border: 1px solid #F43F5E;
+    cursor: pointer;
+    padding: 7px;
+    color: white;
+    border-radius: 10px;
+}
+
