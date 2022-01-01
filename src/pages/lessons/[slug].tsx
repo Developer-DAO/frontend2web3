@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
 import { lessonFilePaths, LESSONS_PATH } from '../../utils/mdxUtils';
+import Code from '@/components/Code';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -15,10 +16,10 @@ import { lessonFilePaths, LESSONS_PATH } from '../../utils/mdxUtils';
 const components = {
   ConnectWallet: dynamic(() => import(`@/components/ConnectWallet`)),
   Head,
+  code: Code,
 };
 
 export default function LessonPage({ source, frontMatter }) {
-  console.log({ source, frontMatter });
   return (
     <>
       <header>
