@@ -4,10 +4,10 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import Link from 'next/link';
 import path from 'path';
 import { lessonFilePaths, LESSONS_PATH } from '../../utils/mdxUtils';
 import Code from '@/components/Code';
+import styles from './index.module.css';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -19,47 +19,31 @@ const components = {
   code: Code,
 };
 
-export default function LessonPage({ source, frontMatter }) {
+export default function LessonPage({ source, frontMatter }: any) {
   return (
-    <>
-      <header>
-        <nav>
-          <Link href="/">
-            <a>👈 Go back home</a>
-          </Link>
-        </nav>
-      </header>
-      <div className="post-header">
+    <main className={styles.container}>
+      <div className={styles.postHeader}>
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
+          <p className={styles.description}>{frontMatter.description}</p>
         )}
       </div>
       <main>
         <MDXRemote {...source} components={components} />
       </main>
-
-      <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
-        .post-header {
-          margin-bottom: 2rem;
-        }
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
-    </>
+    </main>
   );
 }
 
-// interface Props {
-//   params: string;
-// }
+interface Params {
+  slug: string;
+}
 
-export const getStaticProps = async ({ params }) => {
-  console.log({ params });
+interface Props {
+  params: Params;
+}
+
+export const getStaticProps = async ({ params }: Props) => {
   const postFilePath = path.join(LESSONS_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 
