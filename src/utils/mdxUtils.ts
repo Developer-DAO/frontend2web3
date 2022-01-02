@@ -9,3 +9,10 @@ export const lessonFilePaths = fs
   .readdirSync(LESSONS_PATH)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path));
+
+export const VIDEOS_PATH = path.join(process.cwd(), `src/videos`);
+
+export const videoFilePaths = fs
+  .readdirSync(VIDEOS_PATH)
+  // Only include md(x) files
+  .filter((path) => /\.mdx?$/.test(path));

@@ -1,0 +1,14 @@
+.postHeader h1 {
+    margin-bottom: 0;
+  }
+  .postHeader {
+    margin-bottom: 2rem;
+  }
+  .description {
+    opacity: 0.6;
+  }
+
+.container {
+    width: 90%;
+    margin: 2% auto;
+}
