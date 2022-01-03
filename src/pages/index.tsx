@@ -18,7 +18,16 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.container}>
           <h1 className={styles.header}>
-            <span className={styles.slash}>/</span>Frontend to Web3
+            <span className={styles.slash}>
+              <Image
+                src="/images/icon.png"
+                alt=""
+                width={`100%`}
+                height={`100%`}
+                className={styles.logo}
+              />
+            </span>
+            <div className={styles.headerText}>Frontend to Web3</div>
           </h1>
           <p className={styles.copy}>
             The platform for Frontend developers looking to learn about Dapps,

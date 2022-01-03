@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import ConnectWallet from '../ConnectWallet';
+import Image from 'next/image';
 import styles from './index.module.css';
 
 interface Props {
@@ -12,20 +13,28 @@ const Layout = ({ children }: Props) => {
     <>
       <nav className={styles.nav}>
         <div className={styles.navLeft}>
-          <Link href="/">
-            <a className={styles.links}>
-              <span className={styles.slash}>/</span>F-W3
-            </a>
+          <Link href="/" passHref>
+            <div className={styles.linkContainer}>
+              <Image
+                src="/images/icon.png"
+                alt=""
+                width={`100%`}
+                height={`100%`}
+                className={styles.logo}
+              />
+            </div>
           </Link>
-          <Link href="/course">
-            <a className={styles.links}>Course</a>
-          </Link>
-          <Link href="/builders">
-            <a className={styles.links}>Builders</a>
-          </Link>
-          <Link href="/about">
-            <a className={styles.links}>About</a>
-          </Link>
+          <div className={styles.linkWrapper}>
+            <Link href="/lessons">
+              <a className={styles.links}>Lessons</a>
+            </Link>
+            <Link href="/videos">
+              <a className={styles.links}>Videos</a>
+            </Link>
+            <Link href="/about">
+              <a className={styles.links}>About</a>
+            </Link>
+          </div>
         </div>
         <ConnectWallet />
       </nav>

@@ -33,3 +33,17 @@
     border-radius: 10px;
 }
 
+.linkContainer {
+    width: 50px;
+}
+
+.linkWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 4%;
+}
+
+.logo {
+    cursor: pointer;
+}

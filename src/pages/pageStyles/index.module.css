@@ -18,8 +18,9 @@
 .slash {
     color: #F43F5E;
     margin-right: 5px;
+    width: 50px;
 }
 
 .header {
-    margin-bottom: 3%;
+    display: flex;
 }
