@@ -1,5 +1,5 @@
 const Videos = () => {
-  return <h1>In progress</h1>;
+  return <h1>Videos In progress</h1>;
 };
 
 export default Videos;

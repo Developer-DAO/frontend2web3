@@ -1,8 +1,6 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 
-export default function auth(req: NextApiRequest, res: NextApiResponse) {
+export default function auth(req, res) {
   let authenticated = false;
   const { token } = req.cookies;
   const data = jwt.decode(token);

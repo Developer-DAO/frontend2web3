@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { ConnectWallet } from '@/components';
 import styles from './pageStyles/index.module.css';
 import Image from 'next/image';
 
@@ -43,7 +42,6 @@ export default function Home() {
             What skills do you need to dive into Web3 as frontend developer? Get
             started on your journey now by connecting your wallet!
           </p>
-          <ConnectWallet />
         </div>
         <div className={styles.imageWrapper}>
           <Image

@@ -1,9 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { users } from '../../../utils/users';
 import * as crypto from 'crypto';
 
-export default function auth(req: NextApiRequest, res: NextApiResponse) {
+export default function auth(req, res) {
   const { address } = req.query;
   let user = users[address];
   if (!user) {
