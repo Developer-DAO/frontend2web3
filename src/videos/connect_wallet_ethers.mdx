@@ -1,0 +1,52 @@
+---
+title: Build a Wallet Connect Component using Ethers JS.
+description: How to connect to a users wallet in React by using the ethers library.
+slug: connect_wallet_ethers
+---
+
+<ReactPlayer 
+url='https://youtu.be/TcxfdiKtTVs' 
+controls={true}
+width="80%"
+height="500px"
+/>
+
+# Transcript
+
+In this lesson, we're going to learn how to use the ethers library in order to connect to a users wallet from react. I've already downloaded the code and I'm currently inside the connect_ wallet_ ethers exercise in the unsolved folder, I've run a yarn install and yarn dev. And now I've got this application here running.
+<br />
+If I hit connect wallet, nothing really happens except a console log in the background, but we're going to add some functionality to make that work. So inside this handle wallet connect function, I've got some instructions. I'm gonna write some code to connect to the user's wallet, display their address by using this set address function instead of the use state.
+<br />
+<br />
+And remember if you're doing this alone, which I recommend you try to do refer to the ethers documentation. Awesome. So let's get rid of all these comments as well as this console log. Now, the first thing we need to keep in mind is that if the user is using something like an injected wallet, which is what metamask is, you'll get a, ethereum object, that's injected into the window.
+<br />
+<br />
+So the first thing that we're going to do is actually grab that ethereum object and pull it out of the window by de-structuring. The next thing we're going to do is put in an if statement to check, if that object actually exists, if it does exist, we're going to execute some more code. If it doesn't exist, then it probably means the user doesn't have a wallet extension in their browser.
+<br />
+<br />
+The next thing we want to do is get access to a provider providers given to us by ethers and to actually get access to it. We can do const provider equals new ethers, and ethers has a couple of more methods. First being the providers method, as well as the web three provider, we're going to pass the web three provider, that Ethereum object that we pulled out of the window.
+<br />
+<br />
+Now the next step is to actually ask for permission to access the user's wallet, which can be done using this provider dot send function. As long as we give it this string of eth_requestAccounts, once they've actually given us permission to access their account, we can now get some more information about it.
+<br />
+<br />
+First, we want to make sure that we create what's called a signer object. The signer object can be given to us by our provider. So we're going to create a new variable called signer and use the provider dot get signer function to return that object. Once we have access to that sign, or now has a bunch of cool methods that are specifically about the wallet holder.
+<br />
+<br />
+What we need right now is the actual address. So we'll create a new variable call address and then use the signer dot get address function in order to get that now, the get address function actually returns a promise. So we just have to make sure we await that get address this promise resolves. So we're going to get a nice string that we can use to update our state with.
+<br />
+<br />
+So let's use that set address function and pass it. The address let's test this out. So now if we hit our connect wallet,  we're going to get our metamask popping up, we could connect. And once we're connected, we get our address showing up on screen. Awesome. So you made it here. What's next? One thing that you probably want to consider is that this implementation of this solution only really works for folks who have a wallet like Metta mask.
+<br />
+<br />
+In reality, you might have people with all sorts of different wallets. Maybe they've got a hardware wallet, a mobile wallet, Coinbase wallet, whatever your challenge now is to make sure your application is inclusive of these other types of users. One of the core responsibilities of a front end developers, making sure these applications are accessible as possible to everybody.
+<br />
+<br />
+So take a look at packages like wallet, connect, web3 modal, and see if you can rework this to work with other types of wallets, you can also take a look at the source code for front-end to web three and take a look at how I implemented this. Using an NPM package called wagmi. Once you're able to refactor this.
+<br />
+<br />
+Share your implementation with me on discord or Twitter, because I would love to see how you implement it.
+
+
+
+
