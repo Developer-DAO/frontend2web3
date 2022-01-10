@@ -6,17 +6,19 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import path from 'path';
 import { lessonFilePaths, LESSONS_PATH } from '../../utils/mdxUtils';
-import Code from '@/components/Code';
+import Code from '@/components/MDXComponents/Code';
 import styles from './index.module.css';
+import Link from '@/components/MDXComponents/Link';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
 // here.
 const components = {
-  ConnectWallet: dynamic(() => import(`@/components/ConnectWallet`)),
+  ConnectWallet: dynamic(() => import(`@/components/ConnectOptions`)),
   Head,
   code: Code,
+  Link: Link,
 };
 
 export default function LessonPage({ source, frontMatter }: any) {

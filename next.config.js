@@ -7,4 +7,7 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+  images: {
+    domains: ['gateway.ipfs.io'],
+  },
 });

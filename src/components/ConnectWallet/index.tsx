@@ -1,8 +1,15 @@
-import * as React from 'react';
 import styles from './index.module.css';
 
-const ConnectWallet = () => {
-  return <button className={styles.button}>Connect Wallet</button>;
+interface Props {
+  setIsOpen: any;
+}
+
+const ConnectWallet = ({ setIsOpen }: Props) => {
+  return (
+    <button onClick={() => setIsOpen(true)} className={styles.button}>
+      Connect Wallet
+    </button>
+  );
 };
 
 export default ConnectWallet;

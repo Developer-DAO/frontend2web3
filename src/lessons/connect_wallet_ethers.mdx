@@ -1,0 +1,115 @@
+---
+title: Build a Wallet Connect Component using Ethers JS.
+description: How to connect to a users wallet in React by using the ethers library.
+---
+In this lesson we're going to use the Ethers library in order to connect to a users wallet and display their address on the screen.
+<br />
+I'll be referencing the unsolved code for this lesson which can be found <Link text="here" url="https://github.com/Rahat-ch/frontendweb3lessons/tree/main/connect_wallet_ethers/unsolved" />
+<br />
+<br />
+I've already written up some markup and Styling for you so our main focus in this lesson is going to be completing the handleWalletConnect function on our <Link text="index page" url="https://github.com/Rahat-ch/frontendweb3lessons/blob/main/connect_wallet_ethers/unsolved/pages/index.js" />
+<br />
+<br />
+
+I'm going to remove the comments and console log in the function so my starting point is going to look like this beginning on line 7:
+
+```js
+
+const handleWalletConnect = async () => {
+
+  }
+
+
+```
+
+You'll notice that I've already imported ethers as well as useState from React. Our state for now is just an empty string that will be populated by the address we get from the user. 
+<br />
+Before we dive into using ethers we need to make sure that the user even has a wallet. Browser wallets like Metamask inject an Ethereum object into the browser which is going to give us access to the data that we need. Let's take a look at some code below:
+
+```js
+
+const handleWalletConnect = async () => {
+    const { ethereum } = window;
+    if (ethereum) {
+      alert('yay theres a wallet here')
+    } else {
+      alert('No Wallet Detected')
+    }
+  }
+
+
+```
+
+<br />
+
+Here I am desctructuring the ethereum object out of the window and have a check to make sure that it exists. Now that we have a way of detecting the wallet we can start leverging the ethers library to parse through the object and get the data we need. I'm going to replace the first alert with the block of code below:
+
+```js
+
+const provider = new ethers.providers.Web3Provider(ethereum)
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
+      setAddress(address);
+
+
+```
+
+<br />
+
+Let's take a look at this line by line. First I want to use ethers built in providers which will allow me access to some methods that will make it easier to connect to the wallet. 
+
+```js
+const provider = new ethers.providers.Web3Provider(ethereum)
+```
+<br />
+
+What I'm doing here is creating that provider given to us by ethers by passing it that ethereum object we pulled out of the window. 
+
+```js
+await provider.send("eth_requestAccounts", []);
+```
+
+Now I need to ask the user for permission to connect to their wallet. The `provider.send` method allows us to do just that as long as we pass it these arguments: `("eth_requestAccounts", [])`. This will cause the users metamask wallet to open up and ask them for permission to connect to our web page. This is an asynchronous action so we need to make sure to await the completion of this before executing more code. 
+
+```js
+const signer = provider.getSigner();
+const address = await signer.getAddress();
+setAddress(address);
+```
+
+These last three lines are the fineal piece tog etting the information we need. The provider gives us access to another object called signer which contains various methods that give us more information about the user who's wallet we have just connected to. In this case we want access to the signers address. Once we have that we can update our state and display the address of the user we have connected to! The final code for the function should look something like this:
+
+```js
+  const handleWalletConnect = async () => {
+    const { ethereum } = window;
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum)
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
+      setAddress(address);
+    } else {
+      alert('No Wallet Detected')
+    }
+  }
+```
+
+Try it out and see if you can display your address on the screen!
+
+<br />
+
+Challenge:
+<br />
+Now that you have some practice with connecting wallets let's improve this. 
+<br />
+This method only works with in browser injected wallets. There are libraries that can help you make sure that your dApp is able to connect to many different types of wallets, including mobile wallets! Take a look at Wallet Connect and Web3 Modal and see if you can improve your connect wallet to allow more users to connect to your webpage!
+< br />
+< br />
+<Link text="Wallet Connect" url="https://walletconnect.com/" />
+<br />
+<br />
+<Link text="Web3 Modal" url="https://www.npmjs.com/package/web3modal" />
+< br />
+< br />
+Share your solution on Twitter or discord and don't forget to tag me!

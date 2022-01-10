@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Frontend for Web3</title>
+        <title>Frontend to Web3</title>
         <meta
           name="description"
           content="A guide to learning the needed skills to transition into Web3 as a frontend developer."
@@ -20,7 +20,7 @@ export default function Home() {
           <h1 className={styles.header}>
             <span className={styles.slash}>
               <Image
-                src="/images/icon.png"
+                src="/images/icon.svg"
                 alt=""
                 width={`100%`}
                 height={`100%`}
@@ -36,11 +36,12 @@ export default function Home() {
           </p>
           <p className={styles.copy}>
             {` `}
-            Learn With Video, Text, or both! This Course will be made available
-            in various mediums{` `}
+            Learn With Video, Text, or both! Many lessons will be available in
+            various mediums{` `}
           </p>
           <p className={styles.copy}>
-            Get Started on your journey now by connecting your wallet!
+            What skills do you need to dive into Web3 as frontend developer? Get
+            started on your journey now by connecting your wallet!
           </p>
           <ConnectWallet />
         </div>

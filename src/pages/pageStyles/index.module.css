@@ -24,3 +24,8 @@
 .header {
     display: flex;
 }
+
+.headerText {
+    margin-left: 1%;
+    margin-top: 1%;
+}

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import path from 'path';
 import { videoFilePaths, VIDEOS_PATH } from '../../utils/mdxUtils';
-import Code from '@/components/Code';
+import Code from '@/components/MDXComponents/Code';
 import ReactPlayer from 'react-player';
 import styles from './index.module.css';
 
@@ -15,7 +15,7 @@ import styles from './index.module.css';
 // to handle import statements. Instead, you must include components in scope
 // here.
 const components = {
-  ConnectWallet: dynamic(() => import(`@/components/ConnectWallet`)),
+  ConnectWallet: dynamic(() => import(`@/components/ConnectOptions`)),
   Head,
   code: Code,
   ReactPlayer,

@@ -47,3 +47,25 @@
 .logo {
     cursor: pointer;
 }
+
+.modal {
+    background-color: #343436;
+    height: 500px;
+    width: 500px;
+}
+
+.profileImage {
+    border-radius: 60px;
+    width: 50px;
+    height: 50px;
+}
+
+.profileWrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 12%;
+}
+
+.displayname {
+    margin-top: 10%;
+}
