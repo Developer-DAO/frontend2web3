@@ -11,8 +11,7 @@ const ConnectOptions = ({ setIsOpen, refetch }: any) => {
       `/api/auth/authenticate?address=${accountData?.address}`,
     );
     const user = await authData.json();
-    console.log({ user });
-    signMessage({ message: user.nonce });
+    signMessage({ message: user[0]?.nonce });
   };
 
   React.useEffect(() => {
@@ -36,7 +35,7 @@ const ConnectOptions = ({ setIsOpen, refetch }: any) => {
     if (signData) {
       verifySignature();
     }
-  }, [signData, accountData?.address, refetch]);
+  }, [signData, accountData?.address, refetch, setIsOpen]);
 
   if (accountData) {
     return (
