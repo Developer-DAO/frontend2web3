@@ -7,13 +7,13 @@ import Link from 'next/link';
 
 import styles from './index.module.css';
 
-const Lessons = ({ lessons }) => {
+const Lessons = ({ lessons }: any) => {
   console.log({ lessons });
   return (
     <>
       <h1 className={styles.pageHeader}>Text based tutorials</h1>
       <div className={styles.postCard}>
-        {lessons.map((lesson) => {
+        {lessons.map((lesson: any) => {
           const { description, image, slug, title } = lesson.data;
           return (
             <div key={slug}>
