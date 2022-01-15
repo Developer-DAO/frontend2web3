@@ -53,3 +53,7 @@ cursor: pointer;
   position: absolute;
   z-index: 0;
 }
+
+.image {
+  border-radius: 15px;
+}

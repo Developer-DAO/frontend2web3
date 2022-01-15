@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
+.cardContainer {
+  position: relative;
+  width: 100%;
+}
+
 .cardBackground {
     background: linear-gradient(90deg, 
     #44ff9a -0.55%, 
@@ -46,10 +51,14 @@
     #8b44ff 48.36%, 
     #ff6644 73.33%, 
     #ebff70 99.34%);
-    width: 22%;
-    height: 41%;
+    width: 100%;
+    height: 100%;
     filter: blur(10px);
     border-radius: 10px;
     position: absolute;
     z-index: 0;
+}
+
+.image {
+  border-radius: 15px;
 }
