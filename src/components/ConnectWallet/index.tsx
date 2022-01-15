@@ -6,9 +6,12 @@ interface Props {
 
 const ConnectWallet = ({ setIsOpen }: Props) => {
   return (
-    <button onClick={() => setIsOpen(true)} className={styles.button}>
-      Connect Wallet
-    </button>
+    <div className={styles.buttonContainer}>
+      <div className={styles.buttonBackground}></div>
+      <button onClick={() => setIsOpen(true)} className={styles.button}>
+        Connect Wallet
+      </button>
+    </div>
   );
 };
 

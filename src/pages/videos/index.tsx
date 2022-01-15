@@ -9,29 +9,32 @@ import styles from './index.module.css';
 
 const Videos = ({ videos }: any) => {
   return (
-    <>
+    <main className={styles.pageContainer}>
       <h1 className={styles.pageHeader}>Video tutorials</h1>
       <div className={styles.postCard}>
         {videos.map((video: any) => {
           const { description, image, slug, title } = video.data;
           return (
-            <div key={slug}>
+            <div className={styles.cardContainer} key={slug}>
+              <div className={styles.cardBackground}></div>
               <Link passHref href={`videos/${slug}`}>
-                <Image
-                  className={styles.image}
-                  src={image}
-                  alt=""
-                  width="350%"
-                  height="200%"
-                />
+                <div className={styles.card}>
+                  <Image
+                    className={styles.image}
+                    src={image}
+                    alt=""
+                    width="350%"
+                    height="200%"
+                  />
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
               </Link>
-              <h3>{title}</h3>
-              <p>{description}</p>
             </div>
           );
         })}
       </div>
-    </>
+    </main>
   );
 };
 

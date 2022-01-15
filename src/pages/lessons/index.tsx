@@ -9,29 +9,32 @@ import styles from './index.module.css';
 
 const Lessons = ({ lessons }: any) => {
   return (
-    <>
+    <main className={styles.pageContainer}>
       <h1 className={styles.pageHeader}>Text based tutorials</h1>
       <div className={styles.postCard}>
         {lessons.map((lesson: any) => {
           const { description, image, slug, title } = lesson.data;
           return (
-            <div key={slug}>
+            <div className={styles.cardContainer} key={slug}>
+              <div className={styles.cardBackground}></div>
               <Link passHref href={`lessons/${slug}`}>
-                <Image
-                  className={styles.image}
-                  src={image}
-                  alt=""
-                  width="350%"
-                  height="200%"
-                />
+                <div className={styles.card}>
+                  <Image
+                    className={styles.image}
+                    src={image}
+                    alt=""
+                    width="350%"
+                    height="200%"
+                  />
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
               </Link>
-              <h3>{title}</h3>
-              <p>{description}</p>
             </div>
           );
         })}
       </div>
-    </>
+    </main>
   );
 };
 
