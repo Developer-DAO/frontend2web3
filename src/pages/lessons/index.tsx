@@ -8,7 +8,6 @@ import Link from 'next/link';
 import styles from './index.module.css';
 
 const Lessons = ({ lessons }: any) => {
-  console.log({ lessons });
   return (
     <>
       <h1 className={styles.pageHeader}>Text based tutorials</h1>

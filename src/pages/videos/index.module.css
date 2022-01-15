@@ -1,14 +1,31 @@
 .postHeader h1 {
-    margin-bottom: 0;
-  }
-  .postHeader {
-    margin-bottom: 2rem;
-  }
-  .description {
-    opacity: 0.6;
-  }
+  margin-bottom: 0;
+}
+.postHeader {
+  margin-bottom: 2rem;
+}
+.description {
+  opacity: 0.6;
+}
 
 .container {
-    width: 90%;
-    margin: 2% auto;
+  width: 90%;
+  margin: 2% auto;
+}
+
+.postCard {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+grid-gap: 50px;
+}
+
+.pageHeader {
+margin: 3% auto;
+width: 75%;
+}
+
+.image {
+cursor: pointer;
 }
