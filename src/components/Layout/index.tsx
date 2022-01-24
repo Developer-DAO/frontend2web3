@@ -8,6 +8,7 @@ import { ConnectOptions } from '..';
 import { useAccount } from 'wagmi';
 
 import { UserContext } from '@/contexts/UserContext';
+import '@fontsource/plus-jakarta-sans';
 
 interface Props {
   children: React.ReactNode;
