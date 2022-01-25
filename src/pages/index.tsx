@@ -69,7 +69,7 @@ export default function Home() {
           <div className={styles.moreInfo__right}>
             <div className={styles.moreInfo__right_imageWrapper}>
               <Image
-                src="/images/lesson1.png"
+                src="/images/lesson1.gif"
                 alt=""
                 width={500}
                 height={650}
