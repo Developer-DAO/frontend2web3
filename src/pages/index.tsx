@@ -15,42 +15,94 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.container}>
-          <h1 className={styles.header}>
-            <span className={styles.slash}>
+        <section className={styles.hero}>
+          <div className={styles.container}>
+            <h1 className={styles.header}>
+              <span className={styles.slash}>
+                <Image
+                  src="/images/icon.svg"
+                  alt=""
+                  width={`100%`}
+                  height={`100%`}
+                  className={styles.logo}
+                />
+              </span>
+              <div className={styles.headerText}>Frontend to Web3</div>
+            </h1>
+            <p className={styles.copy}>
+              The platform for Frontend developers looking to learn about Dapps,
+              Dapp developers looking to learn about frontends, Javascript
+              coders excited about decentralization or a mix of all of these!
+            </p>
+            <p className={styles.copy}>
+              {` `}
+              Learn With Video, Text, or both! Many lessons will be available in
+              various mediums{` `}
+            </p>
+            <p className={styles.copy}>
+              What skills do you need to dive into Web3 as frontend developer?
+              Get started on your journey now by connecting your wallet!
+            </p>
+          </div>
+          <div className={styles.imageWrapper}>
+            <Image
+              src="/images/buildingBlocks.svg"
+              alt=""
+              width={500}
+              height={650}
+            />
+          </div>
+        </section>
+
+        <section className={styles.moreInfo}>
+          <div className={styles.moreInfo__left}>
+            <div className={styles.moreInfo__left_heading}>
+              Learn Web3 with Video
+            </div>
+            <div className={styles.moreInfo__left_subheading}>
+              Follow guided video tutorials that help build the skills you need
+              to develop the frontend for your dApps. Watch the videos and then
+              try it on your own!
+            </div>
+          </div>
+
+          <div className={styles.moreInfo__right}>
+            <div className={styles.moreInfo__right_imageWrapper}>
               <Image
-                src="/images/icon.svg"
+                src="/images/lesson1.png"
                 alt=""
-                width={`100%`}
-                height={`100%`}
-                className={styles.logo}
+                width={500}
+                height={650}
+                className={styles.codeImg}
               />
-            </span>
-            <div className={styles.headerText}>Frontend to Web3</div>
-          </h1>
-          <p className={styles.copy}>
-            The platform for Frontend developers looking to learn about Dapps,
-            Dapp developers looking to learn about frontends, Javascript coders
-            excited about decentralization or a mix of all of these!
-          </p>
-          <p className={styles.copy}>
-            {` `}
-            Learn With Video, Text, or both! Many lessons will be available in
-            various mediums{` `}
-          </p>
-          <p className={styles.copy}>
-            What skills do you need to dive into Web3 as frontend developer? Get
-            started on your journey now by connecting your wallet!
-          </p>
-        </div>
-        <div className={styles.imageWrapper}>
-          <Image
-            src="/images/buildingBlocks.svg"
-            alt=""
-            width={500}
-            height={650}
-          />
-        </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.moreInfo}>
+          <div className={styles.moreInfo__right}>
+            <div className={styles.moreInfo__right_imageWrapper}>
+              <Image
+                src="/images/lesson1.png"
+                alt=""
+                width={500}
+                height={650}
+                className={styles.codeImg}
+              />
+            </div>
+          </div>
+
+          <div className={styles.moreInfo__left}>
+            <div className={styles.moreInfo__left_heading}>
+              Learn web3 with text-based lessons
+            </div>
+            <div className={styles.moreInfo__left_subheading}>
+              Video not your thing? Follow a blog-style tutorial with code
+              snippets aimed at helping you build the same skills available in
+              all of our video tutorials.
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
