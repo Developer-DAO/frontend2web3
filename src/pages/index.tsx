@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <section className={styles.hero}>
+        {/* <section className={styles.hero}>
           <div className={styles.container}>
             <h1 className={styles.header}>
               <span className={styles.slash}>
@@ -53,7 +53,7 @@ export default function Home() {
               height={650}
             />
           </div>
-        </section>
+        </section> */}
         <section>
           <Features />
         </section>

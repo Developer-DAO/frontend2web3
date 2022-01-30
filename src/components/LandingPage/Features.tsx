@@ -1,17 +1,18 @@
 import React from 'react';
-import { Sales, Secure, Support, Trusted } from '../icons';
-import styles from './features.module.css';
+import { RocketCode, Sales, Secure, Support, Trusted } from '../icons';
+import RainbowButton from './Buttons';
+import styles from './landingPageStyles/features.module.css';
 const Features = () => {
   return (
     <div className={styles.features}>
       <div className={styles.features__header}>
         <div className={styles.features__header_title}>
-          Learn With Video, Text, or both! Many lessons will be available in
-          various mediums
+          Frontend to Web3 <RocketCode />
         </div>
         <div className={styles.features__header_subtitle}>
           What skills do you need to dive into Web3 as frontend developer? Get
-          started on your journey now by connecting your wallet!
+          started on your journey now! Connect your wallet to track your
+          progress!
         </div>
       </div>
 
@@ -23,8 +24,11 @@ const Features = () => {
             <Sales />
           </div>
           <div className={styles.why_text}>
-            <h3>Simple and Explanatory</h3>
-            <p>We deliver your top-up within minutes.</p>
+            <h3>Video lessons</h3>
+            <p>Follow along with guided video tutorials.</p>
+            <div className={styles.rainbowBtn__container}>
+              <RainbowButton url="/videos" btnText="Explore" />
+            </div>
           </div>
         </div>
 
@@ -35,8 +39,11 @@ const Features = () => {
             <Secure />
           </div>
           <div className={styles.why_text}>
-            <h3>Secure payments</h3>
-            <p>Your transactions are always encrypted and secure.</p>
+            <h3>Text based Lessons</h3>
+            <p>Read through instructions and code snippets.</p>
+            <div className={styles.rainbowBtn__container}>
+              <RainbowButton url="/lessons" btnText="Explore" />
+            </div>
           </div>
         </div>
 
@@ -47,8 +54,10 @@ const Features = () => {
             <Trusted />
           </div>
           <div className={styles.why_text}>
-            <h3>Trusted by the world</h3>
-            <p>Available discounts on bulk Airtime/Data purchase.</p>
+            <h3>Track your progress</h3>
+            <p>
+              Connect your wallet to create an account and track your progress.
+            </p>
           </div>
         </div>
 
@@ -59,8 +68,11 @@ const Features = () => {
             <Support />
           </div>
           <div className={styles.why_text}>
-            <h3>We are here to help </h3>
-            <p>Real people to assist you with 24hr support.</p>
+            <h3>Earn Credentials </h3>
+            <p>
+              As you track your progress earn on chain credentials to showcase
+              your skills.
+            </p>
           </div>
         </div>
       </div>
