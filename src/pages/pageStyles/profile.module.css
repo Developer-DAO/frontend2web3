@@ -1,0 +1,43 @@
+.profile__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePic__wrapper {
+  max-width: 176px;
+  max-height: 176px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.profilePic__img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.info__name {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 152% */
+
+  text-align: center;
+
+  /* gray/900 */
+}
+
+.info__add {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(152, 152, 152);
+}
