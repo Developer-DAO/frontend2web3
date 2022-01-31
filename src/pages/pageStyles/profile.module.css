@@ -100,3 +100,52 @@
   height: 100%;
   border-radius: 15px;
 }
+
+.modal__form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.modal_heading {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+
+.modal__inputContainer {
+  width: 90%;
+}
+.label {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+}
+.formInput {
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 48px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: 1px solid rgb(229, 232, 235);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.submit__btn {
+  /* display: none; */
+  border-radius: 5px;
+  width: 111px;
+  height: 48px;
+  font-weight: bolder;
+}
+.submit__btn:after {
+  content: 'Submit';
+  border-radius: 5px;
+}

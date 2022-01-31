@@ -69,7 +69,31 @@ export default function Profile(props: IProfileProps) {
           },
         }}
       >
-        <div>Modal</div>
+        <div className={styles.modal__container}>
+          <h4 className={styles.modal_heading}>Add more info</h4>
+
+          <form className={styles.modal__form}>
+            <div className={styles.modal__inputContainer}>
+              <p className={styles.label}>Facebook</p>
+              <input type="text" className={styles.formInput} />
+            </div>
+
+            <div className={styles.modal__inputContainer}>
+              <p className={styles.label}>Twitter</p>
+              <input type="text" className={styles.formInput} />
+            </div>
+
+            <div className={styles.modal__inputContainer}>
+              <p className={styles.label}>Github</p>
+              <input type="text" className={styles.formInput} />
+            </div>
+
+            <div
+              role="button"
+              className={`${styles.add__info} ${styles.submit__btn}`}
+            ></div>
+          </form>
+        </div>
       </ReactModal>
     </div>
   );
