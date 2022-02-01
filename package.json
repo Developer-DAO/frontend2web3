@@ -1,7 +1,7 @@
 {
   "name": "typescript-nextjs-starter",
   "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
   "license": "MIT",
@@ -18,7 +18,8 @@
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "release": "standard-version"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -30,6 +31,7 @@
     "@chakra-ui/react": "1.7.3",
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
+    "@fontsource/plus-jakarta-sans": "4.5.0",
     "@mdx-js/loader": "1.6.22",
     "@next/mdx": "12.0.7",
     "@supabase/supabase-js": "1.29.1",
@@ -73,6 +75,7 @@
     "husky": "7.0.4",
     "lint-staged": "12.1.4",
     "prettier": "2.5.1",
+    "standard-version": "9.3.2",
     "typescript": "4.5.4"
   },
   "config": {

@@ -8,6 +8,7 @@ import { ConnectOptions } from '..';
 import { useAccount } from 'wagmi';
 
 import { UserContext } from '@/contexts/UserContext';
+import '@fontsource/plus-jakarta-sans';
 
 interface Props {
   children: React.ReactNode;
@@ -15,17 +16,19 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [avatar, setAvator] = React.useState(`/images/profile.png`);
   const { authenticated, refetch } = React.useContext(UserContext);
   const [{ data }] = useAccount({ fetchEns: true });
   const isAuthenticated = authenticated && data;
-  const displayName = data?.ens?.name || data?.address;
-  React.useEffect(() => {
-    if (authenticated && data) {
-      const ensAvatar = data.ens?.avatar || `/images/profile.png`;
-      setAvator(ensAvatar);
+  const getDisplayName = () => {
+    if (data?.ens?.name) {
+      return data?.ens?.name;
+    } else {
+      const add = data?.address as string;
+      const truncate = add.slice(add.length - 4);
+      return `0x...${truncate}`;
     }
-  }, [data, authenticated]);
+  };
+
   return (
     <>
       <ReactModal
@@ -71,14 +74,7 @@ const Layout = ({ children }: Props) => {
         </div>
         {isAuthenticated ? (
           <div className={styles.profileWrapper}>
-            <p className={styles.displayname}>{displayName}</p>
-            <Image
-              src={avatar}
-              alt=""
-              width="50px"
-              height="50px"
-              className={styles.profileImage}
-            />
+            <p className={styles.displayname}>{getDisplayName()}</p>
           </div>
         ) : (
           <ConnectWallet setIsOpen={setIsOpen} />
