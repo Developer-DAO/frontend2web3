@@ -10,6 +10,7 @@ import { useAccount } from 'wagmi';
 import { UserContext } from '@/contexts/UserContext';
 import '@fontsource/plus-jakarta-sans';
 import { useRouter } from 'next/router';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface Props {
   children: React.ReactNode;
@@ -106,18 +107,28 @@ const Layout = ({ children }: Props) => {
             </div>
 
             <>
-              {showPopup && (
-                <div data-foo="visible" className={`${styles.popup} `}>
-                  <Link href="/profile" passHref>
-                    <div className={`${styles.popupMenu}`}>Profile</div>
-                  </Link>
-                  <div
-                    className={`${styles.popupMenu}  ${styles.popupMenuDisconnect}`}
+              <AnimatePresence>
+                {showPopup && (
+                  <motion.div
+                    initial={{ y: -13 }}
+                    animate={{ y: 5 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className={`${styles.popup} ${
+                      showPopup && styles.visible
+                    } `}
                   >
-                    Disconnect
-                  </div>
-                </div>
-              )}
+                    <Link href="/profile" passHref>
+                      <div className={`${styles.popupMenu}`}>Profile</div>
+                    </Link>
+                    <div
+                      className={`${styles.popupMenu}  ${styles.popupMenuDisconnect}`}
+                    >
+                      Disconnect
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </>
           </div>
         ) : (

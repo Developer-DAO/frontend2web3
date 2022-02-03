@@ -110,12 +110,13 @@
   position: absolute;
   z-index: 1;
   margin-top: 10px;
-  opacity: 1;
   /* transition: all 0.3s cubic-bezier(1, 0, 0.22, 1.6) 0s, z-index 0s linear 0s; */
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 8px;
   max-width: 220px;
   width: 100%;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .popupMenu {
@@ -172,4 +173,9 @@
 
 .pointer {
   pointer-events: none;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
 }
