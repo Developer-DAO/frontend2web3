@@ -9,13 +9,17 @@ import { useAccount } from 'wagmi';
 
 import { UserContext } from '@/contexts/UserContext';
 import '@fontsource/plus-jakarta-sans';
+import { useRouter } from 'next/router';
 
 interface Props {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: Props) => {
+  const router = useRouter();
+  const divRef = React.useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [showPopup, setShowPopup] = React.useState(false);
   const { authenticated, refetch } = React.useContext(UserContext);
   const [{ data }] = useAccount({ fetchEns: true });
   const isAuthenticated = authenticated && data;
@@ -28,6 +32,23 @@ const Layout = ({ children }: Props) => {
       return `0x...${truncate}`;
     }
   };
+
+  //Detect route change
+  React.useEffect(() => {
+    const handleRouteChange = () => {
+      //unfocus popup after route change
+      if (divRef.current !== null) {
+        divRef.current.focus();
+      }
+      setShowPopup(false);
+    };
+
+    router.events.on(`routeChangeStart`, handleRouteChange);
+
+    return () => {
+      router.events.off(`routeChangeStart`, handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
@@ -47,7 +68,7 @@ const Layout = ({ children }: Props) => {
       >
         <ConnectOptions setIsOpen={setIsOpen} refetch={refetch} />
       </ReactModal>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} ref={divRef} tabIndex={0}>
         <div className={styles.navLeft}>
           <Link href="/" passHref>
             <div className={styles.linkContainer}>
@@ -73,8 +94,31 @@ const Layout = ({ children }: Props) => {
           </div>
         </div>
         {isAuthenticated ? (
-          <div className={styles.profileWrapper}>
-            <p className={styles.displayname}>{getDisplayName()}</p>
+          <div
+            tabIndex={1}
+            className={styles.sideMenu}
+            onFocus={() => setShowPopup(true)}
+            onBlur={() => setShowPopup(false)}
+          >
+            <div className={styles.profileWrapper}>
+              <div className={styles.profileAvatar}></div>
+              <div className={styles.displayname}> {getDisplayName()}</div>
+            </div>
+
+            <>
+              {showPopup && (
+                <div data-foo="visible" className={`${styles.popup} `}>
+                  <Link href="/profile" passHref>
+                    <div className={`${styles.popupMenu}`}>Profile</div>
+                  </Link>
+                  <div
+                    className={`${styles.popupMenu}  ${styles.popupMenuDisconnect}`}
+                  >
+                    Disconnect
+                  </div>
+                </div>
+              )}
+            </>
           </div>
         ) : (
           <ConnectWallet setIsOpen={setIsOpen} />
