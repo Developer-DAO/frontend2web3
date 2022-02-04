@@ -1,4 +1,5 @@
 import React from 'react';
+import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 import { RocketCode, Sales, Secure, Support, Trusted } from '../icons';
 import RainbowButton from './Buttons';
 import styles from './landingPageStyles/features.module.css';
@@ -54,10 +55,14 @@ const Features = () => {
             <Trusted />
           </div>
           <div className={styles.why_text}>
-            <h3>Track your progress</h3>
-            <p>
-              Connect your wallet to create an account and track your progress.
-            </p>
+            {/* Wrapper to properly position tracking component */}
+            <div className={styles.tracking_wrapper}>
+              <h3>Track your progress</h3>
+              <p>
+                Connect your wallet to create an account and track your
+                progress.
+              </p>
+            </div>
           </div>
         </div>
 

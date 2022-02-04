@@ -1,0 +1,59 @@
+.postHeader h1 {
+  margin-bottom: 0;
+}
+.postHeader {
+  margin-bottom: 2rem;
+}
+.description {
+  opacity: 0.6;
+}
+
+.container {
+  width: 90%;
+  margin: 2% auto;
+}
+
+.postCard {
+max-width: 1200px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+grid-gap: 50px;
+}
+
+.pageHeader {
+width: 75%;
+margin-bottom: 3%;
+}
+
+.pageContainer {
+width:85%;
+margin: 2% auto;
+}
+
+.card {
+box-shadow: 0px 4px 4px rgba(35, 40, 105, 0.08);
+border-radius: 10px;
+position: relative;
+background-color: #343436 ;
+padding: 20px;
+cursor: pointer;
+}
+
+.cardBackground {
+  background: linear-gradient(90deg, 
+  #44ff9a -0.55%, 
+  #44b0ff 22.86%, 
+  #8b44ff 48.36%, 
+  #ff6644 73.33%, 
+  #ebff70 99.34%);
+  width: 22%;
+  height: 41%;
+  filter: blur(10px);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 0;
+}
+
+.image {
+  border-radius: 15px;
+}
