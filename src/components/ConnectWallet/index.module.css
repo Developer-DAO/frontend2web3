@@ -1,31 +1,33 @@
 .button {
-    background-color: #302244;
-    border: 1px solid #F43F5E;
-    cursor: pointer;
-    padding: 7px;
-    color: white;
-    border-radius: 10px;
-    position: relative;
-    z-index: 5;
-    margin: 0 auto;
+  background-color: #302244;
+  border: 1px solid #f43f5e;
+  cursor: pointer;
+  padding: 7px;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  z-index: 5;
+  margin: 0 auto;
 }
 
 .buttonContainer {
-    width: 200px;
-    top: 1;
-  }
+  width: 200px;
+  top: 1;
+}
 
-  .buttonBackground {
-    background: linear-gradient(90deg, 
-    #44ff9a -0.55%, 
-    #44b0ff 22.86%, 
-    #8b44ff 48.36%, 
-    #ff6644 73.33%, 
-    #ebff70 99.34%);
-    width: 130px;
-    height: 45px;
-    filter: blur(10px);
-    border-radius: 10px;
-    position: absolute;
-    z-index: 0;
-  }
+.buttonBackground {
+  background: linear-gradient(
+    90deg,
+    #44ff9a -0.55%,
+    #44b0ff 22.86%,
+    #8b44ff 48.36%,
+    #ff6644 73.33%,
+    #ebff70 99.34%
+  );
+  width: 130px;
+  height: 45px;
+  filter: blur(10px);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 0;
+}
