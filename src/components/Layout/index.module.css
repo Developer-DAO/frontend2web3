@@ -68,15 +68,17 @@
 
 .profileWrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  max-width: 220px;
-  height: 66px;
+  max-width: 200px;
+  height: 40px;
   width: 100%;
-  padding: 8px 16px 8px 10px;
-  background-color: #0000003d;
+  background-color: #302244;
   border-radius: 9999999px;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #f43f5e;
 }
 
 .profileAvatar {
@@ -98,6 +100,7 @@
 
 .popup {
   background-color: #0000003d;
+
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -109,7 +112,7 @@
   /* transition: all 0.3s cubic-bezier(1, 0, 0.22, 1.6) 0s, z-index 0s linear 0s; */
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 8px;
-  max-width: 220px;
+  max-width: 200px;
   width: 100%;
   visibility: hidden;
   opacity: 0;
@@ -174,4 +177,20 @@
 .visible {
   visibility: visible;
   opacity: 1;
+}
+.buttonBackground {
+  background: linear-gradient(
+    90deg,
+    #44ff9a -0.55%,
+    #44b0ff 22.86%,
+    #8b44ff 48.36%,
+    #ff6644 73.33%,
+    #ebff70 99.34%
+  );
+  width: 200px;
+  height: 45px;
+  filter: blur(10px);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 0;
 }

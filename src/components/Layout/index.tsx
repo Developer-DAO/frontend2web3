@@ -101,6 +101,7 @@ const Layout = ({ children }: Props) => {
             onFocus={() => setShowPopup(true)}
             onBlur={() => setShowPopup(false)}
           >
+            <div className={styles.buttonBackground}></div>
             <div className={styles.profileWrapper}>
               <div className={styles.displayname}> {getDisplayName()}</div>
             </div>
