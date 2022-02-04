@@ -1,71 +1,181 @@
 .navLeft {
-    display: flex;
-    justify-content: space-between;
-    width: 25%;
-    padding-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+  padding-left: 2%;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 2%;
-    margin-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2%;
+  margin-top: 2%;
 }
 
 .links {
-    font-size: 16px;
-    line-height: 24px;
-    color: white;
-    text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  text-decoration: none;
 }
 
 .slash {
-    color: #F43F5E;
-    margin-right: 5px;
+  color: #f43f5e;
+  margin-right: 5px;
 }
 
 .button {
-    background-color: #302244;
-    border: 1px solid #F43F5E;
-    cursor: pointer;
-    padding: 7px;
-    color: white;
-    border-radius: 10px;
+  background-color: #302244;
+  border: 1px solid #f43f5e;
+  cursor: pointer;
+  padding: 7px;
+  color: white;
+  border-radius: 10px;
 }
 
 .linkContainer {
-    width: 50px;
+  width: 50px;
 }
 
 .linkWrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    margin-top: 4%;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 4%;
 }
 
 .logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal {
-    background-color: #343436;
-    height: 500px;
-    width: 500px;
+  background-color: #343436;
+  max-height: 500px;
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 .profileImage {
-    border-radius: 60px;
-    width: 50px;
-    height: 50px;
+  border-radius: 60px;
+  width: 50px;
+  height: 50px;
+}
+.sideMenu {
+  position: relative;
+  max-width: 220px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .profileWrapper {
-    display: flex;
-    justify-content: space-around;
-    width: 12%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 220px;
+  height: 66px;
+  width: 100%;
+  padding: 8px 16px 8px 10px;
+  background-color: #0000003d;
+  border-radius: 9999999px;
+  cursor: pointer;
 }
 
+.profileAvatar {
+  border-radius: 50%;
+  min-width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      157.05deg,
+      rgb(159, 198, 255) -5%,
+      rgb(37, 110, 218) 141.71%
+    )
+    repeat scroll 0% 0%;
+}
 .displayname {
-    margin-top: 10%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.popup {
+  background-color: #0000003d;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  margin-top: 10px;
+  /* transition: all 0.3s cubic-bezier(1, 0, 0.22, 1.6) 0s, z-index 0s linear 0s; */
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 8px;
+  max-width: 220px;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popupMenu {
+  border: medium none;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21.6px;
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  color: rgb(255, 248, 248);
+  opacity: 0.5;
+  border-radius: 10px;
+  /* transition: all 0.2s ease-out 0s; */
+  cursor: pointer;
+  pointer-events: initial;
+}
+
+.popupMenu:hover {
+  opacity: 1;
+}
+
+.popupMenuDisconnect {
+  color: red;
+}
+.sideMenu:focus {
+  pointer-events: none;
+}
+/* .sideMenu:focus .popup {
+  visibility: visible;
+  opacity: 1;
+}
+.sideMenu:focus .popupMenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.notVisible {
+  visibility: hidden;
+  opacity: 0;
+}
+.sideMenu:focus .notVisible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hidePopup {
+  visibility: hidden;
+  opacity: 0;
+} */
+
+.pointer {
+  pointer-events: none;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
 }

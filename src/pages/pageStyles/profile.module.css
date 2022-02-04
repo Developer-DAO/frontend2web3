@@ -1,0 +1,151 @@
+.profile__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePic__wrapper {
+  max-width: 176px;
+  max-height: 176px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.profilePic__img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.info__name {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 152% */
+
+  text-align: center;
+
+  /* gray/900 */
+}
+
+.info__add {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(152, 152, 152);
+}
+
+.add__info {
+  appearance: button;
+  margin-top: 20px;
+}
+
+.add__info {
+  /* width: calc(20vw + 6px);
+    height: calc(8vw + 6px); */
+
+  text-decoration: none;
+  color: #fff;
+  width: 110px;
+  height: 30px;
+  background-image: linear-gradient(
+    90deg,
+    #00c0ff 0%,
+    #ffcf00 49%,
+    #fc4f4f 80%,
+    #00c0ff 100%
+  );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text-transform: uppercase; */
+  font-size: 14px;
+  /* font-weight: bold; */
+  cursor: pointer;
+}
+.add__info:after {
+  content: 'Add more info';
+  width: 96%;
+  height: 88%;
+  background-color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding-top: 3px;
+}
+.add__info:hover {
+  animation: slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}
+
+.modal {
+  background-color: #343436;
+  max-height: 300px;
+  max-width: 300px;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.modal__form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.modal_heading {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+
+.modal__inputContainer {
+  width: 90%;
+}
+.label {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+}
+.formInput {
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 48px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: 1px solid rgb(229, 232, 235);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.submit__btn {
+  /* display: none; */
+  border-radius: 5px;
+  width: 111px;
+  height: 48px;
+  font-weight: bolder;
+}
+.submit__btn:after {
+  content: 'Submit';
+  border-radius: 5px;
+}

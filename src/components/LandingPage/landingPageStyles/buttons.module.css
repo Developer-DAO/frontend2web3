@@ -1,0 +1,42 @@
+.rainbow__btn {
+  /* width: calc(20vw + 6px);
+  height: calc(8vw + 6px); */
+
+  text-decoration: none;
+  color: #fff;
+  width: 110px;
+  height: 30px;
+  background-image: linear-gradient(
+    90deg,
+    #00c0ff 0%,
+    #ffcf00 49%,
+    #fc4f4f 80%,
+    #00c0ff 100%
+  );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text-transform: uppercase; */
+  font-size: 14px;
+  /* font-weight: bold; */
+}
+.rainbow__btn:after {
+  content: attr(data-btnText);
+  width: 96%;
+  height: 88%;
+  background-color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.rainbow__btn:hover {
+  animation: slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}
