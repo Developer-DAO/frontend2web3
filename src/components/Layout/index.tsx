@@ -22,7 +22,7 @@ const Layout = ({ children }: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [showPopup, setShowPopup] = React.useState(false);
   const { authenticated, refetch } = React.useContext(UserContext);
-  const [{ data }] = useAccount({ fetchEns: true });
+  const [{ data }, disconnect] = useAccount({ fetchEns: true });
   const isAuthenticated = authenticated && data;
   const getDisplayName = () => {
     if (data?.ens?.name) {
@@ -102,7 +102,6 @@ const Layout = ({ children }: Props) => {
             onBlur={() => setShowPopup(false)}
           >
             <div className={styles.profileWrapper}>
-              <div className={styles.profileAvatar}></div>
               <div className={styles.displayname}> {getDisplayName()}</div>
             </div>
 
@@ -122,6 +121,7 @@ const Layout = ({ children }: Props) => {
                       <div className={`${styles.popupMenu}`}>Profile</div>
                     </Link>
                     <div
+                      onClick={() => disconnect()}
                       className={`${styles.popupMenu}  ${styles.popupMenuDisconnect}`}
                     >
                       Disconnect

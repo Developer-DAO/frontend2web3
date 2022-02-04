@@ -70,7 +70,7 @@
 
 .profileWrapper {
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-evenly;
   align-items: center;
   max-width: 220px;
   height: 66px;
