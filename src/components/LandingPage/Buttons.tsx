@@ -11,8 +11,9 @@ type Props = {
 export default function RainbowButton({ url, btnText }: Props) {
   return (
     <div>
+      <div className={styles.buttonBackground}></div>
       <Link href={url}>
-        <a className={styles.rainbow__btn} data-btnText={btnText}></a>
+        <a className={styles.rainbow__btn}>{btnText}</a>
       </Link>
     </div>
   );

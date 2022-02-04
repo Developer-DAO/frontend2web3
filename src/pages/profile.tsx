@@ -40,12 +40,16 @@ export default function Profile(props: IProfileProps) {
               : `No connected`}
           </div>
         </div>
-
-        <div
-          role="button"
-          onClick={() => setIsOpen(true)}
-          className={styles.add__info}
-        ></div>
+        <div className={styles.btnContain}>
+          <div className={styles.buttonBackground}></div>
+          <div
+            role="button"
+            onClick={() => setIsOpen(true)}
+            className={styles.add__info}
+          >
+            Add more info
+          </div>
+        </div>
       </div>
 
       <ReactModal
@@ -87,11 +91,16 @@ export default function Profile(props: IProfileProps) {
               <p className={styles.label}>Github</p>
               <input type="text" className={styles.formInput} />
             </div>
+            <div>
+              <div className={styles.buttonBackground}></div>
 
-            <div
-              role="button"
-              className={`${styles.add__info} ${styles.submit__btn}`}
-            ></div>
+              <div
+                role="button"
+                className={`${styles.add__info} ${styles.submit__btn}`}
+              >
+                Submit
+              </div>
+            </div>
           </form>
         </div>
       </ReactModal>
