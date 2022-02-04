@@ -93,13 +93,7 @@
     repeat scroll 0% 0%;
 }
 .displayname {
-<<<<<<< HEAD
     margin-top: 10%;
-}
-=======
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .popup {
@@ -181,4 +175,3 @@
   visibility: visible;
   opacity: 1;
 }
->>>>>>> 83ffb420fee30820253e7a40226139ad953efad8
