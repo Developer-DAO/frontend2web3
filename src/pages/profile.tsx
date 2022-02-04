@@ -4,11 +4,8 @@ import * as React from 'react';
 import ReactModal from 'react-modal';
 import { useAccount } from 'wagmi';
 import styles from './pageStyles/profile.module.css';
-export interface IProfileProps {
-  prop?: boolean;
-}
 
-export default function Profile(props: IProfileProps) {
+export default function Profile() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const { authenticated } = React.useContext(UserContext);
