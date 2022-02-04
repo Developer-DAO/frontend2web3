@@ -65,7 +65,7 @@
   -webkit-box-shadow: 2px 3px 14px 0 #b9b9be40;
   box-shadow: 2px 3px 14px 0 #b9b9be40;
   position: relative;
-  background: #ffffff;
+  background: #343436;
   border-radius: 8px;
   max-width: 250px;
   padding: 40px 14px 49px 13px;
@@ -97,10 +97,26 @@
   justify-content: center;
 }
 
+.features__lists .track_icon {
+  position: relative;
+  padding-bottom: 50px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 @media (max-width: 64em) {
   .features__lists .why_icon svg {
     width: 62px;
   }
+}
+/* Wrapper created to properly position track progress icon */
+.features__lists .tracking_wrapper {
+  margin-bottom: 38px;
 }
 
 .features__lists .why_text h3 {
@@ -112,9 +128,10 @@
   text-align: center;
   /* identical to box height, or 127% */
   letter-spacing: 0.015em;
-  color: #20202d;
+  color: #ffff;
   margin-bottom: 10px;
 }
+
 
 .features__lists .why_text p {
   font-family: 'Poppins', sans-serif;
@@ -124,8 +141,9 @@
   line-height: 24px;
   /* or 150% */
   text-align: center;
-  color: #353449;
+  color: #ffff;
 }
+
 .rainbowBtn__container {
   display: flex;
   justify-content: center;
@@ -148,11 +166,16 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgba(185, 185, 190, 0.25);
-  -webkit-filter: blur(165px);
-  filter: blur(165px);
   border-radius: 8px;
   z-index: -1;
+  background: linear-gradient(90deg, 
+  #44ff9a -0.55%, 
+  #44b0ff 22.86%, 
+  #8b44ff 48.36%, 
+  #ff6644 73.33%, 
+  #ebff70 99.34%);
+  filter: blur(10px);
+  --webkit-filter: blur(10px);
 }
 
 @media (max-width: 64em) {
@@ -184,12 +207,19 @@
     /* padding: 40px 14px 49px 13px; */
     /* height: 300px; */
     padding: 10px;
-    height: auto;
+    height: 300px;
   }
   .features__lists .why_icon {
     /* margin-bottom: 25px; */
     margin-bottom: 7px;
   }
+
+  /* responsiveness for the tracking progress icon */
+  .features__lists .why_icon {
+    /* margin-bottom: 25px; */
+    margin-bottom: 30px;
+  }
+
   .features__lists {
     /* gap: 40px; */
     gap: 20px;

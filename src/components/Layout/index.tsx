@@ -31,23 +31,23 @@ const Layout = ({ children }: Props) => {
 
   return (
     <>
-      <ReactModal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        contentLabel={`Select A Wallet Connect Option`}
-        portalClassName={styles.modal}
-        style={{
-          content: {
-            width: `65%`,
-            height: `65%`,
-            margin: `5% auto`,
-            backgroundColor: `#343436`,
-          },
-        }}
-      >
-        <ConnectOptions setIsOpen={setIsOpen} refetch={refetch} />
-      </ReactModal>
       <nav className={styles.nav}>
+        <ReactModal
+          isOpen={isOpen}
+          onRequestClose={() => setIsOpen(false)}
+          contentLabel={`Select A Wallet Connect Option`}
+          portalClassName={styles.modal}
+          style={{
+            content: {
+              width: `65%`,
+              height: `65%`,
+              margin: `5% auto`,
+              backgroundColor: `#343436`,
+            },
+          }}
+        >
+          <ConnectOptions setIsOpen={setIsOpen} refetch={refetch} />
+        </ReactModal>
         <div className={styles.navLeft}>
           <Link href="/" passHref>
             <div className={styles.linkContainer}>
