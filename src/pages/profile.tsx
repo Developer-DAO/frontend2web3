@@ -4,11 +4,8 @@ import * as React from 'react';
 import ReactModal from 'react-modal';
 import { useAccount } from 'wagmi';
 import styles from './pageStyles/profile.module.css';
-export interface IProfileProps {
-  prop?: boolean;
-}
 
-export default function Profile(props: IProfileProps) {
+export default function Profile() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const { authenticated } = React.useContext(UserContext);
@@ -40,12 +37,16 @@ export default function Profile(props: IProfileProps) {
               : `No connected`}
           </div>
         </div>
-
-        <div
-          role="button"
-          onClick={() => setIsOpen(true)}
-          className={styles.add__info}
-        ></div>
+        <div className={styles.btnContain}>
+          <div className={styles.buttonBackground}></div>
+          <div
+            role="button"
+            onClick={() => setIsOpen(true)}
+            className={styles.add__info}
+          >
+            Add more info
+          </div>
+        </div>
       </div>
 
       <ReactModal
@@ -87,11 +88,16 @@ export default function Profile(props: IProfileProps) {
               <p className={styles.label}>Github</p>
               <input type="text" className={styles.formInput} />
             </div>
+            <div>
+              <div className={styles.buttonBackground}></div>
 
-            <div
-              role="button"
-              className={`${styles.add__info} ${styles.submit__btn}`}
-            ></div>
+              <div
+                role="button"
+                className={`${styles.add__info} ${styles.submit__btn}`}
+              >
+                Submit
+              </div>
+            </div>
           </form>
         </div>
       </ReactModal>

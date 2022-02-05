@@ -5,7 +5,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import path from 'path';
-import { lessonFilePaths, LESSONS_PATH } from '@/utils/mdxUtils';
+import { lessonFilePaths, LESSONS_PATH } from '../../utils/mdxUtils';
 import Code from '@/components/MDXComponents/Code';
 import styles from './index.module.css';
 import Link from '@/components/MDXComponents/Link';

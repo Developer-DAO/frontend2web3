@@ -53,23 +53,23 @@ const Layout = ({ children }: Props) => {
 
   return (
     <>
-      <ReactModal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        contentLabel={`Select A Wallet Connect Option`}
-        portalClassName={styles.modal}
-        style={{
-          content: {
-            width: `65%`,
-            height: `65%`,
-            margin: `5% auto`,
-            backgroundColor: `#343436`,
-          },
-        }}
-      >
-        <ConnectOptions setIsOpen={setIsOpen} refetch={refetch} />
-      </ReactModal>
-      <nav className={styles.nav} ref={divRef} tabIndex={0}>
+      <nav className={styles.nav} tabIndex={0} ref={divRef}>
+        <ReactModal
+          isOpen={isOpen}
+          onRequestClose={() => setIsOpen(false)}
+          contentLabel={`Select A Wallet Connect Option`}
+          portalClassName={styles.modal}
+          style={{
+            content: {
+              width: `65%`,
+              height: `65%`,
+              margin: `5% auto`,
+              backgroundColor: `#343436`,
+            },
+          }}
+        >
+          <ConnectOptions setIsOpen={setIsOpen} refetch={refetch} />
+        </ReactModal>
         <div className={styles.navLeft}>
           <Link href="/" passHref>
             <div className={styles.linkContainer}>
@@ -101,6 +101,7 @@ const Layout = ({ children }: Props) => {
             onFocus={() => setShowPopup(true)}
             onBlur={() => setShowPopup(false)}
           >
+            <div className={styles.buttonBackground}></div>
             <div className={styles.profileWrapper}>
               <div className={styles.displayname}> {getDisplayName()}</div>
             </div>
