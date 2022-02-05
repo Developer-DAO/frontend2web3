@@ -42,54 +42,28 @@
   color: rgb(152, 152, 152);
 }
 
+.btnContain {
+  margin-top: 30px;
+}
 .add__info {
   appearance: button;
-  margin-top: 20px;
 }
 
 .add__info {
-  /* width: calc(20vw + 6px);
-    height: calc(8vw + 6px); */
-
   text-decoration: none;
   color: #fff;
   width: 110px;
   height: 30px;
-  background-image: linear-gradient(
-    90deg,
-    #00c0ff 0%,
-    #ffcf00 49%,
-    #fc4f4f 80%,
-    #00c0ff 100%
-  );
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* text-transform: uppercase; */
   font-size: 14px;
-  /* font-weight: bold; */
+  background-color: #302244;
   cursor: pointer;
-}
-.add__info:after {
-  content: 'Add more info';
-  width: 96%;
-  height: 88%;
-  background-color: #191919;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  padding-top: 3px;
-}
-.add__info:hover {
-  animation: slidebg 2s linear infinite;
-}
-
-@keyframes slidebg {
-  to {
-    background-position: 20vw;
-  }
+  position: relative;
+  z-index: 2;
+  border: 1px solid #f43f5e;
 }
 
 .modal {
@@ -140,12 +114,25 @@
 }
 .submit__btn {
   /* display: none; */
-  border-radius: 5px;
+  border-radius: 10px;
   width: 111px;
-  height: 48px;
+  height: 36px;
   font-weight: bolder;
 }
-.submit__btn:after {
-  content: 'Submit';
-  border-radius: 5px;
+
+.buttonBackground {
+  background: linear-gradient(
+    90deg,
+    #44ff9a -0.55%,
+    #44b0ff 22.86%,
+    #8b44ff 48.36%,
+    #ff6644 73.33%,
+    #ebff70 99.34%
+  );
+  width: 110px;
+  height: 30px;
+  filter: blur(10px);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 0;
 }

@@ -53,7 +53,7 @@ const Layout = ({ children }: Props) => {
 
   return (
     <>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} tabIndex={0} ref={divRef}>
         <ReactModal
           isOpen={isOpen}
           onRequestClose={() => setIsOpen(false)}
