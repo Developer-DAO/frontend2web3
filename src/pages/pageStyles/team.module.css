@@ -1,0 +1,89 @@
+.team {
+  padding: 15px;
+}
+
+.teamHeader {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 48px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.teamInfo__container {
+  display: flex;
+  justify-content: center;
+  gap: 97px;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 1012px;
+}
+
+.teamInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 193px;
+  max-height: 300px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.teamInfo__imgWrapper {
+  max-width: 176px;
+  max-height: 176px;
+}
+.teamInfo__img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.teamInfo__name {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 31px;
+}
+
+.teamInfo__bio {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  max-width: 193px;
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+.link_icon {
+  cursor: pointer;
+}
+
+.teamInfo__links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 822px) {
+  .teamInfo__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .teamHeader {
+    font-size: 25px;
+  }
+}
