@@ -50,8 +50,10 @@
 
 .modal {
   background-color: #343436;
-  height: 500px;
-  width: 500px;
+  max-height: 500px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
 }
 
 .profileImage {
