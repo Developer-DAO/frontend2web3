@@ -2,17 +2,48 @@ import Head from 'next/head';
 import styles from './pageStyles/index.module.css';
 import Image from 'next/image';
 import Features from '@/components/LandingPage/Features';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import getOgImage from '@/lib/ getOgImage';
 
-export default function Home() {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const ogImage = await getOgImage(
+    `/phiilu.com/post?title=${`Connect ethers`}&url=https://og-image.phiilu.com/index&date=${false}&readTime=${2}`,
+  );
+  const baseUrl = process.env.BASE_URL;
+
+  return {
+    props: { ogImage, baseUrl },
+  };
+};
+
+interface ind {
+  ogImage: any;
+  baseUrl: string;
+  slug: string;
+}
+
+export default function Home({ ogImage, baseUrl, slug }: ind) {
+  console.log(`ogImage`, ogImage);
+
   return (
     <div>
       <Head>
-        <title>Frontend to Web3</title>
+        <title>Frontend to Web32</title>
         <meta
           name="description"
           content="A guide to learning the needed skills to transition into Web3 as a frontend developer."
         />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://phiilu.com/" />
+        <meta property="og:image" content={ogImage} />
+
+        <meta property="og:title" content="Frontend to web3" />
+        <meta
+          property="og:description"
+          content="A guide to learning the needed skills to transition into Web3 as a frontend developer"
+        />
       </Head>
 
       <main className={styles.main}>

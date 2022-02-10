@@ -9,7 +9,9 @@ import { WalletLinkConnector } from 'wagmi/connectors/walletLink';
 
 import UserProvider from '@/contexts/UserContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import { DefaultSeo, NextSeo } from 'next-seo';
+import SEO from '../config/next-seo.config';
+// import your default seo configuration
 const infuraId = process.env.NEXT_PUBLIC_INFURA_ID;
 
 const queryClient = new QueryClient();
@@ -45,6 +47,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <UserProvider>
         <Provider autoConnect connectors={connectors}>
           <Layout>
+            {/* <DefaultSeo {...SEO} /> */}
+
             <Component {...pageProps} />
           </Layout>
         </Provider>
