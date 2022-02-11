@@ -2,10 +2,7 @@ const playwright = require(`playwright-aws-lambda`);
 const { createHash } = require(`crypto`);
 const fs = require(`fs`);
 
-async function getOgImage(
-  path: string,
-  baseUrl = `https://og-image.phiilu.com`,
-) {
+async function getOgImage(path: string, baseUrl = `http://localhost:3000`) {
   // if (process.env.NODE_ENV === `development`) {
   //   return `og image will be generated in production`;
   // }

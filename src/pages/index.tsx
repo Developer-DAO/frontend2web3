@@ -2,13 +2,12 @@ import Head from 'next/head';
 import styles from './pageStyles/index.module.css';
 import Image from 'next/image';
 import Features from '@/components/LandingPage/Features';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps } from 'next';
 import getOgImage from '@/lib/ getOgImage';
+import { NextSeo } from 'next-seo';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const ogImage = await getOgImage(
-    `/phiilu.com/post?title=${`Connect ethers`}&url=https://og-image.phiilu.com/index&date=${false}&readTime=${2}`,
-  );
+export const getStaticProps: GetStaticProps = async () => {
+  const ogImage = await getOgImage(`/rainbow`);
   const baseUrl = process.env.BASE_URL;
 
   return {
@@ -18,33 +17,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 interface ind {
   ogImage: any;
-  baseUrl: string;
-  slug: string;
 }
 
-export default function Home({ ogImage, baseUrl, slug }: ind) {
-  console.log(`ogImage`, ogImage);
-
+export default function Home({ ogImage }: ind) {
   return (
     <div>
-      <Head>
-        <title>Frontend to Web32</title>
-        <meta
-          name="description"
-          content="A guide to learning the needed skills to transition into Web3 as a frontend developer."
-        />
-        <link rel="icon" href="/favicon.ico" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://phiilu.com/" />
-        <meta property="og:image" content={ogImage} />
-
-        <meta property="og:title" content="Frontend to web3" />
-        <meta
-          property="og:description"
-          content="A guide to learning the needed skills to transition into Web3 as a frontend developer"
-        />
-      </Head>
+      <NextSeo
+        openGraph={{
+          url: `https://frontend2web3.vercel.app`,
+          title: `Frontend to Web3`,
+          description: `A guide to learning the needed skills to transition into Web3 as a frontend developer.`,
+          images: [{ url: `${ogImage}` }],
+          site_name: `SiteName`,
+        }}
+      />
 
       <main className={styles.main}>
         <section>

@@ -47,7 +47,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <UserProvider>
         <Provider autoConnect connectors={connectors}>
           <Layout>
-            {/* <DefaultSeo {...SEO} /> */}
+            <DefaultSeo {...SEO} />
 
             <Component {...pageProps} />
           </Layout>
