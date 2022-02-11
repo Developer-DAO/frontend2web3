@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import styles from './pageStyles/index.module.css';
 import Image from 'next/image';
 import Features from '@/components/LandingPage/Features';
