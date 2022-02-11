@@ -9,6 +9,8 @@ import { lessonFilePaths, LESSONS_PATH } from '../../utils/mdxUtils';
 import Code from '@/components/MDXComponents/Code';
 import styles from './index.module.css';
 import Link from '@/components/MDXComponents/Link';
+import getOgImage from '@/lib/ getOgImage';
+import { NextSeo } from 'next-seo';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -21,19 +23,33 @@ const components = {
   Link: Link,
 };
 
-export default function LessonPage({ source, frontMatter }: any) {
+export default function LessonPage({ source, frontMatter, ogImage }: any) {
   return (
-    <main className={styles.container}>
-      <div className={styles.postHeader}>
-        <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className={styles.description}>{frontMatter.description}</p>
-        )}
-      </div>
-      <main>
-        <MDXRemote {...source} components={components} />
+    <>
+      <NextSeo
+        title={frontMatter?.title}
+        description={frontMatter?.description}
+        openGraph={{
+          url: `https://frontend2web3.vercel.app/lessons/${frontMatter?.slug}`,
+          title: frontMatter?.title,
+          description: frontMatter?.description,
+          images: [{ url: `${ogImage}` }],
+          site_name: `SiteName`,
+        }}
+      />
+
+      <main className={styles.container}>
+        <div className={styles.postHeader}>
+          <h1>{frontMatter.title}</h1>
+          {frontMatter.description && (
+            <p className={styles.description}>{frontMatter.description}</p>
+          )}
+        </div>
+        <main>
+          <MDXRemote {...source} components={components} />
+        </main>
       </main>
-    </main>
+    </>
   );
 }
 
@@ -50,6 +66,11 @@ export const getStaticProps = async ({ params }: Props) => {
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
+  // get og image
+  const ogImage = await getOgImage(`/rainbow/lessons?title=${
+    data?.title ?? ``
+  }&description=${data?.description ?? ``}.
+  `);
 
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
@@ -64,6 +85,7 @@ export const getStaticProps = async ({ params }: Props) => {
     props: {
       source: mdxSource,
       frontMatter: data,
+      ogImage,
     },
   };
 };
