@@ -3,6 +3,8 @@ import styles from './pageStyles/index.module.css';
 import Image from 'next/image';
 import Features from '@/components/LandingPage/Features';
 import RainbowButton from '@/components/LandingPage/Buttons';
+import { motion } from 'framer-motion';
+
 export default function Home() {
   return (
     <div>
@@ -54,10 +56,20 @@ export default function Home() {
             />
           </div>
         </section> */}
-        <section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <Features />
-        </section>
-        <section className={styles.moreInfo}>
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2 }}
+          className={styles.moreInfo}
+        >
           <div className={styles.moreInfo__left}>
             <div className={styles.moreInfo__left_heading}>
               Learn Web3 with Video
@@ -77,9 +89,15 @@ export default function Home() {
             <div className={styles.imgBackground}></div>
             <div className={styles.moreInfo__right_imageWrapperBg}></div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className={styles.textInfo}>
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2 }}
+          className={styles.textInfo}
+        >
           <div className={styles.textInfo__right}>
             <div className={styles.textInfo__right_heading}>
               Learn web3 with text-based lessons
@@ -112,9 +130,15 @@ export default function Home() {
               className={`${styles.moreInfo__right_imageWrapperBg} ${styles.codeImg}`}
             ></div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className={styles.moreInfo}>
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className={styles.moreInfo}
+        >
           <div className={styles.moreInfo__left}>
             <div className={styles.moreInfo__left_heading}>
               Just go in and build
@@ -136,7 +160,7 @@ export default function Home() {
             <div className={styles.imgBackground}></div>
             <div className={styles.moreInfo__right_imageWrapperBg}></div>
           </div>
-        </section>
+        </motion.section>
       </main>
     </div>
   );
