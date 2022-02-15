@@ -101,8 +101,8 @@ const Layout = ({ children }: Props) => {
             <Link href="/videos">
               <a className={styles.links}>Videos</a>
             </Link>
-            <Link href="/about">
-              <a className={styles.links}>About</a>
+            <Link href="/team">
+              <a className={styles.links}>Team</a>
             </Link>
           </motion.div>
         </div>
