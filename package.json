@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "npx playwright install && next build",
     "start": "next start",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
