@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 
 export const getStaticProps: GetStaticProps = async () => {
   const ogImage = await getOgImage(`/rainbow`);
-  const baseUrl = process.env.BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   return {
     props: { ogImage, baseUrl },
