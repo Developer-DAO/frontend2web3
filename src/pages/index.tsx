@@ -1,5 +1,4 @@
 import styles from './pageStyles/index.module.css';
-import Image from 'next/image';
 import Features from '@/components/LandingPage/Features';
 
 import { GetStaticProps } from 'next';
