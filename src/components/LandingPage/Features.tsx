@@ -3,6 +3,14 @@ import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 import { RocketCode, Sales, Secure, Support, Trusted } from '../icons';
 import RainbowButton from './Buttons';
 import styles from './landingPageStyles/features.module.css';
+import { motion } from 'framer-motion';
+
+// Variable for slight delay on fade-in to feature section
+const fadeInVariant = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 2 } },
+};
+
 const Features = () => {
   return (
     <div className={styles.features}>
@@ -17,7 +25,13 @@ const Features = () => {
         </div>
       </div>
 
-      <div className={styles.features__lists}>
+      {/* Creating the animation for the features section */}
+      <motion.div
+        variants={fadeInVariant}
+        initial="hidden"
+        animate="visible"
+        className={styles.features__lists}
+      >
         <div className={styles.why}>
           <div className={styles.bgshadow}></div>
           <div className={styles.why_icon}>
@@ -80,7 +94,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

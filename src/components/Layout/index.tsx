@@ -72,7 +72,13 @@ const Layout = ({ children }: Props) => {
         </ReactModal>
         <div className={styles.navLeft}>
           <Link href="/" passHref>
-            <div className={styles.linkContainer}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className={styles.linkContainer}
+            >
               <Image
                 src="/images/icon.svg"
                 alt=""
@@ -80,19 +86,25 @@ const Layout = ({ children }: Props) => {
                 height={`100%`}
                 className={styles.logo}
               />
-            </div>
+            </motion.div>
           </Link>
-          <div className={styles.linkWrapper}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className={styles.linkWrapper}
+          >
             <Link href="/lessons">
               <a className={styles.links}>Lessons</a>
             </Link>
             <Link href="/videos">
               <a className={styles.links}>Videos</a>
             </Link>
-            <Link href="/about">
-              <a className={styles.links}>About</a>
+            <Link href="/team">
+              <a className={styles.links}>Team</a>
             </Link>
-          </div>
+          </motion.div>
         </div>
         {isAuthenticated ? (
           <div
