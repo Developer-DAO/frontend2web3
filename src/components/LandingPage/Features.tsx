@@ -1,5 +1,4 @@
 import React from 'react';
-import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 import { RocketCode, Sales, Secure, Support, Trusted } from '../icons';
 import RainbowButton from './Buttons';
 import styles from './landingPageStyles/features.module.css';

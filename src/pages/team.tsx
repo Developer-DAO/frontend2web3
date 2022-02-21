@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './pageStyles/team.module.css';
 import { FiTwitter, FiGlobe } from 'react-icons/fi';
+import { NextSeo } from 'next-seo';
+
 const teamData = [
   {
     name: `Rahat Chowdhury`,
@@ -35,41 +37,51 @@ const teamData = [
 ];
 const Team = () => {
   return (
-    <div className={styles.team}>
-      <div className={styles.teamHeader}>Our team members</div>
+    <>
+      <NextSeo
+        openGraph={{
+          url: `https://frontend2web3.vercel.app`,
+          title: `Frontend to Web3  | Team`,
+          description: `A guide to learning the needed skills to transition into Web3 as a frontend developer.`,
+          site_name: `SiteName`,
+        }}
+      />
+      <div className={styles.team}>
+        <div className={styles.teamHeader}>Our team members</div>
 
-      <div className={styles.teamInfo__container}>
-        {teamData.map((item) => (
-          <div key={item.name} className={styles.teamInfo}>
-            <div className={styles.teamInfo__imgWrapper}>
-              <Image
-                src={item.image}
-                alt=""
-                width={176}
-                height={176}
-                className={styles.teamInfo__img}
-              />
+        <div className={styles.teamInfo__container}>
+          {teamData.map((item) => (
+            <div key={item.name} className={styles.teamInfo}>
+              <div className={styles.teamInfo__imgWrapper}>
+                <Image
+                  src={item.image}
+                  alt=""
+                  width={176}
+                  height={176}
+                  className={styles.teamInfo__img}
+                />
+              </div>
+
+              <div className={styles.teamInfo__name}>{item.name}</div>
+              <div className={styles.teamInfo__bio}>{item.bio}</div>
+              <div className={styles.teamInfo__links}>
+                {item.links.twitter && (
+                  <Link href={item.links.twitter} passHref={true}>
+                    <FiTwitter className={styles.link_icon} />
+                  </Link>
+                )}
+
+                {item.links.website && (
+                  <Link href={item.links.website} passHref={true}>
+                    <FiGlobe className={styles.link_icon} />
+                  </Link>
+                )}
+              </div>
             </div>
-
-            <div className={styles.teamInfo__name}>{item.name}</div>
-            <div className={styles.teamInfo__bio}>{item.bio}</div>
-            <div className={styles.teamInfo__links}>
-              {item.links.twitter && (
-                <Link href={item.links.twitter} passHref={true}>
-                  <FiTwitter className={styles.link_icon} />
-                </Link>
-              )}
-
-              {item.links.website && (
-                <Link href={item.links.website} passHref={true}>
-                  <FiGlobe className={styles.link_icon} />
-                </Link>
-              )}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

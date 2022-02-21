@@ -1,21 +1,38 @@
-import Head from 'next/head';
 import styles from './pageStyles/index.module.css';
-import Image from 'next/image';
 import Features from '@/components/LandingPage/Features';
+
+import { GetStaticProps } from 'next';
+import getOgImage from '@/lib/ getOgImage';
+import { NextSeo } from 'next-seo';
+
 import RainbowButton from '@/components/LandingPage/Buttons';
 import { motion } from 'framer-motion';
 
-export default function Home() {
+export const getStaticProps: GetStaticProps = async () => {
+  const ogImage = await getOgImage(`/rainbow`);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  return {
+    props: { ogImage, baseUrl },
+  };
+};
+
+interface ind {
+  ogImage: any;
+}
+
+export default function Home({ ogImage }: ind) {
   return (
     <div>
-      <Head>
-        <title>Frontend to Web3</title>
-        <meta
-          name="description"
-          content="A guide to learning the needed skills to transition into Web3 as a frontend developer."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        openGraph={{
+          url: `https://frontend2web3.vercel.app`,
+          title: `Frontend to Web3`,
+          description: `A guide to learning the needed skills to transition into Web3 as a frontend developer.`,
+          images: [{ url: `${ogImage}` }],
+          site_name: `SiteName`,
+        }}
+      />
 
       <main className={styles.main}>
         {/* <section className={styles.hero}>
