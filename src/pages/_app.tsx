@@ -9,11 +9,26 @@ import { WalletLinkConnector } from 'wagmi/connectors/walletLink';
 
 import UserProvider from '@/contexts/UserContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import NextNProgress from 'nextjs-progressbar';
 const infuraId = process.env.NEXT_PUBLIC_INFURA_ID;
 
 const queryClient = new QueryClient();
 
+//Progress bar configuration
+const config = {
+  color: `
+  linear-gradient(
+    90deg,
+    #44ff9a -0.55%,
+    #44b0ff 22.86%,
+    #8b44ff 48.36%,
+    #ff6644 73.33%,
+    #ebff70 99.34%
+  )
+`,
+  showOnShallow: true,
+  height: 4,
+};
 // Chains for connectors to support
 const chains = defaultChains;
 
@@ -44,6 +59,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <UserProvider>
         <Provider autoConnect connectors={connectors}>
+          <NextNProgress {...config} />
           <Layout>
             <Component {...pageProps} />
           </Layout>
