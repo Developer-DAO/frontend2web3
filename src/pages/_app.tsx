@@ -27,7 +27,7 @@ const config = {
   )
 `,
   showOnShallow: true,
-  height: 4,
+  height: 2.2,
 };
 // Chains for connectors to support
 const chains = defaultChains;
