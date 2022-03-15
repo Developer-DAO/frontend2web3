@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import ConnectWallet from '../ConnectWallet';
 import Image from 'next/image';
 import styles from './index.module.css';
@@ -21,7 +21,7 @@ const Layout = ({ children }: Props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const [showPopup, setShowPopup] = React.useState(false);
-  const { authenticated, refetch } = React.useContext(UserContext);
+  const { authenticated } = React.useContext(UserContext);
   const [{ data }, disconnect] = useAccount({ fetchEns: true });
   const isAuthenticated = authenticated && data;
   const getDisplayName = () => {
@@ -51,10 +51,19 @@ const Layout = ({ children }: Props) => {
     };
   }, [router.events]);
 
+  // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+  Modal.setAppElement(`#nav`);
+
+  const handleDisconnect = async () => {
+    const res = await fetch(`/api/auth/logout`);
+    if (!res.ok) throw new Error(`Error logging out`);
+    disconnect();
+  };
+
   return (
     <>
-      <nav className={styles.nav} tabIndex={0} ref={divRef}>
-        <ReactModal
+      <nav id="nav" className={styles.nav} tabIndex={0} ref={divRef}>
+        <Modal
           isOpen={isOpen}
           onRequestClose={() => setIsOpen(false)}
           contentLabel={`Select A Wallet Connect Option`}
@@ -68,8 +77,8 @@ const Layout = ({ children }: Props) => {
             },
           }}
         >
-          <ConnectOptions setIsOpen={setIsOpen} refetch={refetch} />
-        </ReactModal>
+          <ConnectOptions closeModal={() => setIsOpen(false)} />
+        </Modal>
         <div className={styles.navLeft}>
           <Link href="/" passHref>
             <div className={styles.linkContainer}>
@@ -122,7 +131,7 @@ const Layout = ({ children }: Props) => {
                       <div className={`${styles.popupMenu}`}>Profile</div>
                     </Link>
                     <div
-                      onClick={() => disconnect()}
+                      onClick={() => handleDisconnect()}
                       className={`${styles.popupMenu}  ${styles.popupMenuDisconnect}`}
                     >
                       Disconnect
